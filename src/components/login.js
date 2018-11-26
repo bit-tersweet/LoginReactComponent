@@ -94,18 +94,32 @@ class Login extends React.Component {
                                     type="password" />
                             </FormGroup>
                     }
-                    <Button
-                        className="LoginBtn"
-                        block
-                        bsSize="large"
-                        type="submit"
-                        disabled={!this.validateForm(this.state.email, this.state.password)}> {this.state.userExists ? <p>Login</p> : <p>Sign up</p>}
+
+                    {this.state.userExists ?
+                        <div>
+                            <Button
+                                className="LoginBtn"
+                                block
+                                bsSize="large"
+                                type="submit"
+                                disabled={!this.validateForm(this.state.email, this.state.password)}> Login
+                        </Button>
+                            <div id="container2">
+                                <span className="forgotPsw"><a href="#"> Forgot password?</a></span>
+                            </div>
+                        </div>
+                        :
+                        <Button
+                            className="LoginBtn btn-primary"
+                            block
+                            bsSize="large"
+                            type="submit"
+
+                            disabled={!this.validateForm(this.state.email, this.state.password)}> Sign up
                     </Button>
-                    {
-                        this.state.userExists ? <div id="container2">
-                            <span className="forgotPsw"><a href="#"> Forgot password?</a></span>
-                        </div> : null
                     }
+
+
 
                 </form>
                 {
