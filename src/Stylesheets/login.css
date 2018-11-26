@@ -1,0 +1,71 @@
+* {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+/*********************************************************LAPTOP**************************************************************/
+@media all and (min-width: 480px) {
+    .Login {
+      padding: 60px 0;
+      background-color: #bbdefb ; 
+    }
+
+    .logo { 
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 30%;
+    }
+
+    .LoginDiv{
+      width: 35%;
+      height: 50%;
+      display: block;
+      background-color: white ; 
+      position: relative;
+      margin: 0 auto;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+     html {background-color: #bbdefb ;}
+
+     .loginP {
+      padding-left: 5%;
+      padding-top: 5%;
+      padding-bottom: 6%;
+      padding-right:  5%;
+     }
+}
+  
+
+/*********************************************************SMARTPHONES**************************************************************/
+  @media all and (max-width: 480px) {
+    .Login {
+      padding: 60px 0;
+      background-color: #bbdefb ;   
+    }
+  
+    .Login form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+    .logo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+     html {background-color: #bbdefb ;}
+
+     #container2{
+       width: 100%;
+       text-align: center;
+     }
+  }
+  
+  
+
