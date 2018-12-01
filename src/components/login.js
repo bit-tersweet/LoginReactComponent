@@ -24,9 +24,20 @@ class Login extends React.Component {
         event.preventDefault();
     }
 
-    validateForm(email, psw) {
-        if (email != null && psw != null && this.state.userExists) return true;
-        if (email != null && psw != null && !this.state.userExists && this.state.username != null && this.state.passwordChecker != null) return true;
+
+    validateEmail() {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(this.state.email).toLowerCase());
+    }
+
+    validateForm() {
+        if (this.validateEmail()) {
+            if (this.state.password === undefined) return false;
+            if (!this.state.userExists) {
+                return (this.state.username !== undefined && this.state.passwordChecker === this.state.password) ?  true:false;
+            }
+            return true;
+        }
     }
 
     handleChange = event => {
@@ -102,7 +113,7 @@ class Login extends React.Component {
                                 block
                                 bsSize="large"
                                 type="submit"
-                                disabled={!this.validateForm(this.state.email, this.state.password)}> Login
+                                disabled={!this.validateForm()}> Login
                         </Button>
                             <div id="container2">
                                 <span className="forgotPsw"><a href="#"> Forgot password?</a></span>
@@ -115,7 +126,7 @@ class Login extends React.Component {
                             bsSize="large"
                             type="submit"
 
-                            disabled={!this.validateForm(this.state.email, this.state.password)}> Sign up
+                            disabled={!this.validateForm()}> Sign up
                     </Button>
                     }
 
